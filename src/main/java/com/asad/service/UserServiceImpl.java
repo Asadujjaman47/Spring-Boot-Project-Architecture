@@ -2,10 +2,14 @@ package com.asad.service;
 
 import com.asad.entity.User;
 import com.asad.repository.UserRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService{
 
     private UserRepository userRepository;
@@ -39,7 +43,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void delete(Long userId) {
+    public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
     }
 }
