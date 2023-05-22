@@ -1,5 +1,6 @@
 package com.asad.controller;
 
+import com.asad.dto.UserDto;
 import com.asad.entity.User;
 import com.asad.service.UserService;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ public class UserController {
 
     // build create User REST API
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user) {
+        UserDto savedUser = userService.createUser(user);
 
         return ResponseEntity.ok(savedUser);
     }
@@ -26,16 +27,16 @@ public class UserController {
     // build get user by id REST API
     // http://localhost:8093/api/users/ID
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
-        User user = userService.getUserById(userId);
+    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId) {
+        UserDto user = userService.getUserById(userId);
 
         return ResponseEntity.ok(user);
     }
 
     // Get All Users
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        List<UserDto> users = userService.getAllUsers();
 
         return ResponseEntity.ok(users);
     }
@@ -43,10 +44,10 @@ public class UserController {
     // Build Update User Rest API
     // http://localhost:8093/api/users/ID
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") Long userId,
-                                           @RequestBody User user) {
+    public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId,
+                                           @RequestBody UserDto user) {
         user.setId(userId);
-        User updateUser = userService.updateUser(user);
+        UserDto updateUser = userService.updateUser(user);
 
         return ResponseEntity.ok(updateUser);
     }
