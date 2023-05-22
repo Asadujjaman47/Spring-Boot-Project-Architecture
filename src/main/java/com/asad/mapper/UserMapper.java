@@ -22,7 +22,8 @@ public class UserMapper {
                 userDto.getId(),
                 userDto.getFirstName(),
                 userDto.getLastName(),
-                userDto.getEmail()
+//                userDto.getEmail()
+                userDto.getEmailAddress() // Because: we change email to email address
         );
 
         return user;
