@@ -1,17 +1,19 @@
 package com.asad.service;
 
+import com.asad.dto.UserDto;
 import com.asad.entity.User;
 
 import java.util.List;
 
 public interface UserService {
-    User createUser(User user);
+    UserDto createUser(UserDto user);
 
-    User getUserById(Long userId);
 
-    List<User> getAllUsers();
+    UserDto getUserById(Long userId);
 
-    User updateUser(User user);
+    List<UserDto> getAllUsers();
+
+    UserDto updateUser(UserDto user);
 
     void deleteUser(Long userId);
 }
